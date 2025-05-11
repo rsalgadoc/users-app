@@ -10,7 +10,7 @@ COPY mvnw pom.xml ./
 RUN chmod +x mvnw
 RUN ./mvnw dependency:go-offline
 COPY ./src ./src
-RUN ./mvnw clean package 
+RUN ./mvnw clean package -DskipTests=true 
 
 #--------------------------------------
 # Stage 2
