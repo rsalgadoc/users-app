@@ -30,3 +30,14 @@ docker build -t rsalgadoc/backend-users .
 # Execute the command
 docker run -d -p 8081:8080 rsalgadoc/backend-users
 ```
+
+# Para probar en el servidor:
+
+```bash
+curl http://localhost:8081/api/users
+```bash
+
+# El resultado se veria algo asi:
+
+[ec2-user@ip-172-31-13-246 backend-spring-boot-api]$ curl http://localhost:8081/api/users
+[{"id":1,"name":"Rodrigo","lastname":"Salgado","email":"juan@gmail.com","username":"rsalgado","admin":true,...........
