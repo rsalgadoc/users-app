@@ -10,7 +10,7 @@ Desde la línea de comandos, clone y ejecute la aplicación:
 git clone https://github.com/rsalgadoc/users-app.git
 
 # Go into the repository
-cd users-app\backend-spring-boot-api
+cd users-app/backend-spring-boot-api
 
 ```
 
