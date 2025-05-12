@@ -28,7 +28,7 @@ cd users-app/backend-spring-boot-api
 docker build -t rsalgadoc/backend-users .
 
 # Execute the command
-docker run -d -p 8081:8080 rsalgadoc/backend-users
+docker run -d -p 8081:8080 --restart always rsalgadoc/backend-users
 ```
 
 # Para probar en el servidor:

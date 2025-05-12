@@ -83,7 +83,11 @@ ng add @ngrx/effects@latest
 ```bash
 docker build -t rsalgadoc/frontend-users .
 ```
+# Debido a que el build en AWS se queda pegado, por se una instancia muy pequeña, subir a DockerHub con el siguiente comando:
+```bash
+docker push rsalgadoc/frontend-users
+```
 
 ```bash
-docker run -d -p 80:80 rsalgadoc/frontend-users
+docker run -d -p 80:80 --restart always rsalgadoc/frontend-users
 ```
