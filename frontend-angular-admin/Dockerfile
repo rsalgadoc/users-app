@@ -5,7 +5,6 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build --omit=dev
-RUN ls -l
 
 # Stage 2: Serve the application with Nginx
 FROM nginx:stable-alpine AS production-stage

@@ -89,14 +89,17 @@ docker push rsalgadoc/frontend-users
 ```
 
 ```bash
-docker run -d -p 80:80 --restart always rsalgadoc/frontend-users
+docker run -d --name frontend-users -p 80:80 --restart always rsalgadoc/frontend-users
 ```
+
+http://ec2-3-133-140-15.us-east-2.compute.amazonaws.com
 
 # Como crear un proxy inverso en NGINX
 
-Una vez corriendo asi se peude ingresar al contenendor:
+Una vez corriendo asi se peude ingresar al contenendor, 
+
 ```bash
-docker exec -it -u root 827b78756051 sh
+docker exec -it -u root frontend-users sh
 ```
 Para probar si tengo acceso al backed desde el contendor del frontend, aca pongo la ip interna del host(la instancia de EC2) Private IPv4 addresses 172.31.13.246
 
@@ -114,7 +117,7 @@ vi default.conf
 
 Agrego la siguiente linea:
 
-```java
+```console
     location /backend/ {
         proxy_pass http://172.31.13.246:8081/;
     }
