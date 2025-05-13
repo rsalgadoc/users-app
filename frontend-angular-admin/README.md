@@ -129,3 +129,94 @@ nginx -s reload
 ```
 
 http://ec2-3-133-140-15.us-east-2.compute.amazonaws.com/backend/api/users
+
+# Para instalar la app de Angular en Amazon S3, seguir los siguientes pasos:
+
+1. En la consola de AWS, buscar S3, una vez dentro ir a Create bucket
+
+2. General purpose
+
+3. En Bucket name , poner: frontend-angular-admin
+
+4. ACLs disabled (recommended)
+
+5. Luego hay que deselccionar la opcion Block all public access, es decir hay que dar acceso publico.
+
+Y aceptar acknowledge:  I acknowledge that the current settings might result in this bucket and the objects within becoming public.
+
+6.  Bucket Versioning -> Disable
+
+7.  Default encryption -> Server-side encryption with Amazon S3 managed keys (SSE-S3) 
+
+8.  Bucket Key -> Enable
+
+9. Create bucket
+
+# Ahora bamos a construir nuestro proyecto de angular para obeter los archivos
+
+1. No vamos a la raiz del ptoyecto de Angular
+
+2. Y ejecutamos 
+```bash
+ng build --configuration production
+```
+
+3. Luego vamos a tomar los archivs generados en la carpeta: users-app\frontend-angular-admin\dist\user-app\browser
+
+# Cargar archivos
+
+1. Ingresamos al bucket  -> frontend-angular-admin
+
+2. vamos a Upload, y cargamos los archivos generados de la carpeta browser
+
+3. Files and folders (5 total, 438.8 KB)
+
+4. Presionamos Upload
+
+5. Luego volvemos atrar en el bucket frontend-angular-admin
+
+6. Y vamos a la pestaña de Properties
+
+7. vamos al ultimo en la opcion -> Static website hosting
+
+8. La editamos para habilitarla -> Enable
+
+9. En la opcion Index document, ponemos index.html y guardamos.
+
+10. Luego nos vamos a la pestaña de Permissions
+
+11. Y editamos Bucket policy, y pegamos lo siguiente:
+
+```bash
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::frontend-angular-admin/*"
+        }
+    ]
+}
+```
+
+12. Save changes.
+
+13. Y vemos nustra app, subida en S3
+
+http://frontend-angular-admin.s3-website.us-east-2.amazonaws.com/
+
+14. Para solucionar el problema de la rutas, por ejemplo cuando sale este error:
+
+404 Not Found
+Code: NoSuchKey
+Message: The specified key does not exist.
+Key: login
+RequestId: KEMSE6TXXDVXN0G6
+HostId: yfG7tcs22OxQx0K/vv+O0oZwcEeKn1GMv9YO+8ECHFnSLdT1xo8tzsVZOuud2du/loAcwU1Wk2BYj6OsWlgdn/uO0mL89INaSMuhMc7wY74=
+
+15. Ir a Properties -> Static website hosting
+
+16. En Error document - optional poner: index.html, y salvar.
