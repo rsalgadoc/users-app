@@ -89,10 +89,12 @@ docker push rsalgadoc/frontend-users
 ```
 
 ```bash
-docker run -d --name frontend-users -p 80:80 --restart always rsalgadoc/frontend-users
+docker run -d --name frontend-users -p 81:80 --restart always rsalgadoc/frontend-users
 ```
 
-http://ec2-3-133-140-15.us-east-2.compute.amazonaws.com
+```bash
+curl http://172.31.13.246:81
+```
 
 # Como crear un proxy inverso en NGINX
 

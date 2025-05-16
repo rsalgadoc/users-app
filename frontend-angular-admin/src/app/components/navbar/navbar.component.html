@@ -1,11 +1,11 @@
 
 <ul class="nav nav-pills">
     <li class="nav-item">
-        <a class="nav-link" href="/users">Home</a>
+        <a class="nav-link" routerLink="/users">Home</a>
     </li>
     @if(admin){
         <li class="nav-item">
-            <a class="nav-link" href="/users/create">New User</a>
+            <a class="nav-link" routerLink="/users/create">New User</a>
         </li>
     }
 
@@ -16,7 +16,8 @@
     
     } @else {
     <li class="nav-item">
-        <a class="nav-link active" href="/login">Iniciar sesión</a>
+        <a class="nav-link active" routerLink="/login">Iniciar sesión</a>
     </li>
     }
+    V 0.0.1
 </ul>
