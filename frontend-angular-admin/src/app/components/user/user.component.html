@@ -21,13 +21,13 @@
     <thead>
         <tr>
             <th>id</th>
-            <th>name</th>
-            <th>lastname</th>
-            <th>email</th>
-            <th>username</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Nombre de usuario</th>
             @if(admin){
-            <th>remove</th>
-            <th>update</th>
+            <th></th>
+            <th></th>
             }
         </tr>
     </thead>
@@ -42,12 +42,12 @@
             @if(admin){
             <td>
                 <button class="btn btn-danger btn-sm" (click)="onRemoveUser(user.id)">
-                    remove
+                    Eliminar
                 </button>
             </td>
             <td>
                 <button class="btn btn-info btn-sm" [routerLink]="['/users/edit', user.id]">
-                    update
+                    Actualizar
                 </button>
             </td>
             }

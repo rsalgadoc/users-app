@@ -8,5 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   templateUrl: './user-app.component.html',
   styleUrls: ['./user-app.component.css']
 })
-export class UserAppComponent {}
+export class UserAppComponent {
+   appVersion: string = '0.0.2';
+}
 

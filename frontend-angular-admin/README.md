@@ -81,6 +81,11 @@ ng add @ngrx/effects@latest
 ```
 
 ```bash
+#Creates the directory src/environments/ containing environment.ts (default/production) and environment.development.ts. These files hold environment-specific variables.
+ng generate environments
+```
+
+```bash
 docker build -t rsalgadoc/frontend-users .
 ```
 # Debido a que el build en AWS se queda pegado, por se una instancia muy pequeña, subir a DockerHub con el siguiente comando:

@@ -2,16 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { login, logout } from '../store/auth/auth.actions';
-import { BACKEND_URL } from '../config/config';
+import { logout } from '../store/auth/auth.actions';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private url: string = BACKEND_URL + '/login';
-
+  private url: string = environment.baseUrl + '/login';
 
   private _user: any;
 

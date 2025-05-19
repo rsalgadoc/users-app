@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Observable, map} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { BACKEND_URL } from '../config/config';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class UserService {
 
   private users: User[] = [];
 
-  private url: string = `${BACKEND_URL}/api/users`;
+  private url: string = environment.baseUrl + '/api/users';
 
   constructor(private http: HttpClient) { }
 
