@@ -163,7 +163,7 @@ Agrego la siguiente linea:
 nginx -s reload
 ```
 
-http://ec2-35-170-201-29.compute-1.amazonaws.com/backend/api/users
+http://ec2-44-201-227-174.compute-1.amazonaws.com/backend/api/users
 
 # Para instalar la app de Angular en Amazon S3, seguir los siguientes pasos:
 

@@ -9,6 +9,6 @@ import { NavbarComponent } from './navbar/navbar.component';
   styleUrls: ['./user-app.component.css']
 })
 export class UserAppComponent {
-   appVersion: string = '0.0.3';
+   appVersion: string = '0.0.4';
 }
 
