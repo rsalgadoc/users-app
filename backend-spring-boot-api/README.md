@@ -26,7 +26,13 @@ cd users-app/backend-spring-boot-api
 ```bash
 # Execute the command
 docker build -t rsalgadoc/backend-users .
+```
 
+```bash
+docker push rsalgadoc/backend-users
+```
+
+```bash
 # Execute the command
 docker run -d -p 8081:8080 --restart always rsalgadoc/backend-users
 ```

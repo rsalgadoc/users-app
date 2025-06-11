@@ -94,12 +94,40 @@ docker push rsalgadoc/frontend-users
 ```
 
 ```bash
+docker pull rsalgadoc/frontend-users
+```
+
+```bash
 docker run -d --name frontend-users -p 81:80 --restart always rsalgadoc/frontend-users
 ```
 
 ```bash
 curl http://172.31.13.246:81
 ```
+
+# Para solucional el problem ade 404 al recargar una pagina de Angular, poner la siguieten linea en la configuracion de nginx de angula, no el proxy.
+
+```console
+ docker exec -it -u root frontend-users sh
+```
+
+```bash
+vi /etc/nginx/conf.d/default.conf
+```
+
+```bash
+nginx -s reload
+```
+
+```console
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        # Agregar esta linea en location
+        try_files   $uri $uri/ /index.html =404;
+    }
+```
+
 
 # Como crear un proxy inverso en NGINX
 
@@ -135,7 +163,7 @@ Agrego la siguiente linea:
 nginx -s reload
 ```
 
-http://ec2-3-133-140-15.us-east-2.compute.amazonaws.com/backend/api/users
+http://ec2-35-170-201-29.compute-1.amazonaws.com/backend/api/users
 
 # Para instalar la app de Angular en Amazon S3, seguir los siguientes pasos:
 

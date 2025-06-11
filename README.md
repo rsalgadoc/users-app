@@ -88,4 +88,4 @@ docker run -d --name frontend-users -p 80:80 --restart always rsalgadoc/frontend
 
 ### Para probar abrimos la siguiente URL:
 
-http://ec2-3-133-140-15.us-east-2.compute.amazonaws.com
+http://ec2-35-170-201-29.compute-1.amazonaws.com
